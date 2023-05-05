@@ -98,7 +98,7 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
 
 	dotnet sln add WebApplication2/WebApplication2.csproj
 
-    /Users/xxxxxx/github/Solution2/WebApplication2/Properties/launchSettings.json をエディタで編集する。
+	/Users/xxxxxx/github/Solution2/WebApplication2/Properties/launchSettings.json をエディタで編集する。
 	-------------------------------------------------------------------------
 	{
 	  "profiles": {
@@ -123,7 +123,7 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
 	URLをブラウザに貼り付けて、”Home”が表示されることを確認する。
 	-------------------------------------------------------------------------
 
-    dotnet publish --configuration Release
+	dotnet publish --configuration Release
 
 
 # C#のWebアプリをDockerで実行する。
@@ -136,12 +136,12 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
         参考ドキュメント
         https://docs.docker.jp/engine/reference/builder.html
 
-		<ターミナル>
+	<ターミナル>
 
-		# pwd
-		# /Users/xxxxxx/github/Solution2
+	# pwd
+	# /Users/xxxxxx/github/Solution2
 
-	    touch Dockerfile
+	touch Dockerfile
 
         Dockerfileに記述する内容について
         ・マイクロソフトがオフィシャルで用意している、aspnetバージョン7.0コンテナイメージを基に生成してください。
@@ -151,19 +151,19 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
         　コンテナ内の（先ほど作成した、app）ディレクトリにコピーしてください。
         ・コンテナを起動した時は、dotnetコマンド 引数として WebApplication2.dll を実行してください。
 
-	    /Users/xxxxxx/github/Solution2/Dockerfile をエディタで編集する。
-	    -------------------------------------------------------------------------
+	/Users/xxxxxx/github/Solution2/Dockerfile をエディタで編集する。
+	-------------------------------------------------------------------------
     	FROM mcr.microsoft.com/dotnet/aspnet:7.0
-	    WORKDIR /app
+	WORKDIR /app
     	EXPOSE 80
-	    COPY WebApplication2/bin/Release/net7.0/publish .
+	COPY WebApplication2/bin/Release/net7.0/publish .
     	ENTRYPOINT [ "dotnet", "WebApplication2.dll" ]
-	    -------------------------------------------------------------------------
+	-------------------------------------------------------------------------
 
 	2. Dockerfile の内容に従って、新しいコンテナイメージを作成する。
 
-		# pwd
-		# /Users/xxxxxx/github/Solution2
+	# pwd
+	# /Users/xxxxxx/github/Solution2
 
         内容について
         ・カレントディレクトリにあるDockerfileに従って、webapplication2という名前のコンテナイメージを作成してください。
@@ -179,10 +179,10 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
 
         docker run --name webapp002 -d -p 8000:80 webapplication2
 
-	    -------------------------------------------------------------------------
-	    http://localhost:8000
-    	URLをブラウザに貼り付けて、”Home”が表示されることを確認する。
-	    -------------------------------------------------------------------------
+	-------------------------------------------------------------------------
+	http://localhost:8000
+	URLをブラウザに貼り付けて、”Home”が表示されることを確認する。
+	-------------------------------------------------------------------------
 
 	4. コンテナを停止する。
 
