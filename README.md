@@ -98,27 +98,13 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
 
 	dotnet sln add WebApplication2/WebApplication2.csproj
 
-	/Users/xxxxxx/github/Solution2/WebApplication2/Properties/launchSettings.json をエディタで編集する。
-	-------------------------------------------------------------------------
-	{
-	  "profiles": {
-	    "https": {
-	      "commandName": "Project",
-	      "dotnetRunMessages": true,
-	      "launchBrowser": true,
-	      "applicationUrl": "https://localhost:5001;http://localhost:5000",
-	      "environmentVariables": {
-	        "ASPNETCORE_ENVIRONMENT": "Development"
-	      }
-	    }
-	  } 
-	}
-	-------------------------------------------------------------------------
+	dotnet run --project WebApplication2/WebApplication2.csproj --launch-profile https
 
-	dotnet run --project WebApplication2/WebApplication2.csproj
 	-------------------------------------------------------------------------
-	Now listening on: https://localhost:5001
-	Now listening on: http://localhost:5000
+	# WebApplication2/Properties/launchSettings.json に記述されている起動プロファイルのうち、"https"を指定して開始している。
+
+	Now listening on: https://localhost:7087
+	Now listening on: http://localhost:5185
 
 	URLをブラウザに貼り付けて、”Home”が表示されることを確認する。
 	-------------------------------------------------------------------------
