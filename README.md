@@ -39,7 +39,7 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
 		# /Users/xxxxxx/github
 		#
 		# ls -a
-		# .    ..    github
+		# .    ..    Solution1
 
 		gh repo create
 
