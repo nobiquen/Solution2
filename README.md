@@ -102,6 +102,8 @@ C#でウェブアプリを作成し、Dockerで実行してみる。
 
 	-------------------------------------------------------------------------
 	# WebApplication2/Properties/launchSettings.json に記述されている起動プロファイルのうち、"https"を指定して開始している。
+	参考ドキュメント
+	https://learn.microsoft.com/ja-jp/aspnet/core/fundamentals/environments?view=aspnetcore-7.0
 
 	Now listening on: https://localhost:7087
 	Now listening on: http://localhost:5185
